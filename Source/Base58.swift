@@ -17,7 +17,7 @@ public class Base58 {
             b58enc(bytes, &size, input, input.count)
         }
         let r = data.subdata(in: 0..<(size - 1))
-
+        
         return String(data: r, encoding: .utf8) ?? ""
     }
 
@@ -35,8 +35,7 @@ public class Base58 {
 
         let beginIndex = (csize - size)
 
-        if beginIndex < 0 || csize > data.count {
-            SweetLogger.error("beginIndex \(str) \(size), \(csize), \(data.count)")
+        if beginIndex < 0 || csize > data.count {            
             return []
         }
 
@@ -49,7 +48,6 @@ public class Base58 {
     }
 
     static let Alphabet = CharacterSet(charactersIn: "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
-    
     static let WrongAlphabet = Alphabet.inverted
 
     class func validate(_ str: String) -> Bool {
