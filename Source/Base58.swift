@@ -10,7 +10,7 @@ import Foundation
 
 public class Base58 {
 
-    class func encode(_ input: [UInt8]) -> String {
+    public class func encode(_ input: [UInt8]) -> String {
         var size = Int(ceil(log(256.0)/log(58)*Double(input.count))) + 1
         var data = Data(count: size)
         data.withUnsafeMutableBytes {(bytes: UnsafeMutablePointer<Int8>)->Void in
@@ -21,7 +21,7 @@ public class Base58 {
         return String(data: r, encoding: .utf8) ?? ""
     }
 
-    class func decode(_ str: String) -> [UInt8] {
+    public class func decode(_ str: String) -> [UInt8] {
         guard validate(str) else { return [] }
 
         let c = Array(str.utf8).map{ Int8($0) }
@@ -43,14 +43,14 @@ public class Base58 {
         return Array(r)
     }
 
-    class func decodeToStr(_ str: String) -> String {
+    public class func decodeToStr(_ str: String) -> String {
         return String(data: Data(decode(str)), encoding: .utf8) ?? ""
     }
 
     static let Alphabet = CharacterSet(charactersIn: "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
     static let WrongAlphabet = Alphabet.inverted
 
-    class func validate(_ str: String) -> Bool {
+    public class func validate(_ str: String) -> Bool {
         return str.rangeOfCharacter(from: WrongAlphabet) == nil
     }
 }

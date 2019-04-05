@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.name         = 'Base58'
   spec.ios.deployment_target = '10.0'
   spec.requires_arc = true
-  spec.version      = '0.2'
+  spec.version      = '0.3'
   spec.license      = { :type => 'MIT license' }
   spec.homepage     = 'https://github.com/wavesplatform/WavesWallet-iOS/'
   spec.authors      = { 'Mefilt' => 'mefilt@gmail.com' }
