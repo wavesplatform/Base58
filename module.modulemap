@@ -1,4 +1,4 @@
-module Base58 [system][extern_c] {
+module Base58Encoder [system][extern_c] {
     header "base58.h"
     export *
 }
